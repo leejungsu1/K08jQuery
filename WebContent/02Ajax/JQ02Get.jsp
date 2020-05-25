@@ -13,7 +13,7 @@ $.get()
 	사용하는 메소드
 	
 	사용법
-		$get(url,param,success(data));
+		$.get(url,param,success(data));
 		-url : 정보를 요청할 경로
 		-param : 서버로 전송할 파라미터로 json형태로 기술
 		-success(data) : 요청이 성공했을때 실행되는 콜백(callback)메소드
@@ -39,7 +39,26 @@ $(function(){
 			});
 		});
 	});
+	//JSP파일에서 읽어오기
+	$('#btnJSP').click(function(){
+		$.get('./common/02PrintToday.jsp',{'msg':$(this).text(),'varStr':'jQuery좋아효'},function(data){
+			alert(data);
+			$('#jspDisplay').html(data);
+		});
+	});
 });
+/*
+	파라미터 조립하기
+	: $.get() 혹은 $.post()를 통해 서버로 요청을 하는경우
+	파라미터를 전송할때는 항상 JSON으로 조립해야한다.
+	하지만 폼값이 많아서 조립이 힘든경우에는 serialize()를
+	사용한다.
+	
+	$('폼이름').serialize()
+		->해당 메소드를 이용하면 form 하위의 모든 요소에 대해
+		JSON으로  조립해준다. 단, input요소의 name속성값이 Key로
+		사용된다는 것에 주의하자.
+*/
 function locationGo(link){
 	window.open(link,'','width=500,height=500');
 }
