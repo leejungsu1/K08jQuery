@@ -26,11 +26,11 @@ public class NaverSearchAPI extends HttpServlet{
         String clientSecret = "szwc0LBm9Y"; //애플리케이션 클라이언트 시크릿값"
 
         String text = null;
-        String start = null;
+        int start = 1;
         try {
         	//jsp페이지에서 입력한 검색어를 받아와서 변수처리
         	String searchTxt = req.getParameter("keyword");
-        	start = req.getParameter("startNum");
+        	start = Integer.parseInt(req.getParameter("startNum"));
             text = URLEncoder.encode(searchTxt, "UTF-8");
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException("검색어 인코딩 실패",e);
