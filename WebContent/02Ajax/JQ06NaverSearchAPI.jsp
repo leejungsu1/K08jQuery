@@ -40,7 +40,6 @@ function sucFuncJson(d){
 	var str = "";
 	$.each(d.items, function(index, item){
 		str += "<ul>";
-		//str += "	<li>"+item.start+"</li>";
 		str += "	<li>"+item.title+"</li>";
 		str += "	<li>"+item.description+"</li>";
 		str += "	<li>"+item.bloggername+"</li>";
